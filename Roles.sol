@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import './errors/Errors.sol';
 import './interfaces/IRoles.sol';
 import './abstracts/RolesVariables.sol';
 import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';

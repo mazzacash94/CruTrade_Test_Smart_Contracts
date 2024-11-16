@@ -1,14 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import './errors/Errors.sol';
 import './interfaces/IRoles.sol';
+import './abstracts/Modifiers.sol';
 import './interfaces/IWhitelist.sol';
-import { IAccessControl } from '@openzeppelin/contracts/access/IAccessControl.sol';
-import { Initializable } from '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
-import { UUPSUpgradeable } from '@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol';
-import { PausableUpgradeable } from '@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol';
-import { Modifiers } from './abstracts/Modifiers.sol';
+import '@openzeppelin/contracts/access/IAccessControl.sol';
+import '@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol';
+import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
+import '@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol';
 
 // EVENTS
 

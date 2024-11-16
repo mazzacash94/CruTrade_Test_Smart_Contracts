@@ -1,26 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
+import "./interfaces/IRoles.sol";
+import "./interfaces/IBrands.sol";
 import './abstracts/Modifiers.sol';
 import "@openzeppelin/contracts/access/IAccessControl.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
-
-/**
- * @dev Emitted when the rules of a brand are updated.
- * @param brandId ID of the brand.
- * @param rules New rules for the brand.
- */
-event RulesUpdated(uint indexed brandId, string rules);
-
-/**
- * @dev Emitted when a brand is registered.
- * @param token Address of the token.
- * @param rules Rules of the brand.
- * @param brandId ID of the registered brand.
- */
-event Registered(address token, string rules, uint96 indexed brandId);
 
 /**
  * @title Brands

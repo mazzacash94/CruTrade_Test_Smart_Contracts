@@ -1,20 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
-/**
- * @dev Represents a brand with a token and associated rules.
- * @param token Address of the brand's token.
- * @param rules String representing the rules of the brand.
- */
+
+// Structs
 struct Brand {
-  address token;
-  string rules;
-  address owner;
+    address token;
+    string rules;
+    address owner;
 }
 
+// Events
+event RulesUpdated(uint indexed brandId, string rules);
+event Registered(address token, string rules, uint96 indexed brandId);
+
+// Errors
+error BrandNotFound(uint256 brandId);
+error InvalidBrandToken(address token);
+error InvalidBrandOwner(address owner);
+
 interface IBrands {
-  function isValidBrand(uint256 brandId) external view returns (bool);
-
-  function getBrand(uint256 brandId) external view returns (Brand memory);
-
-  function getBrandToken(uint256 brandId) external view returns (address);
+    function isValidBrand(uint256 brandId) external view returns (bool);
+    function getBrand(uint256 brandId) external view returns (Brand memory);
+    function getBrandToken(uint256 brandId) external view returns (address);
 }
