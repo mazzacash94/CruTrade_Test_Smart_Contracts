@@ -83,7 +83,7 @@ contract Wrappers is
    * @dev Pauses all token transfers and operations
    * @notice Can only be called by accounts with PAUSER role
    */
-  function pause() external payable onlyRole(PAUSER) {
+  function pause() external onlyRole(PAUSER) {
     _pause();
   }
 
@@ -91,7 +91,7 @@ contract Wrappers is
    * @dev Unpauses all token transfers and operations
    * @notice Can only be called by accounts with PAUSER role
    */
-  function unpause() external payable onlyRole(PAUSER) {
+  function unpause() external onlyRole(PAUSER) {
     _unpause();
   }
 
@@ -101,7 +101,7 @@ contract Wrappers is
    * @notice Can only be called by the contract owner
    * @custom:requirement _roles must be a valid contract address
    */
-  function setRoles(address _roles) external payable onlyRole(OWNER) {
+  function setRoles(address _roles) external onlyRole(OWNER) {
     if (_roles == address(0)) revert ZeroAddress();
     roles = IRoles(_roles);
     emit RolesSet(_roles);
@@ -201,7 +201,7 @@ contract Wrappers is
     address to,
     uint120 brandId,
     WrapperInput[] calldata wrappers
-  ) external payable whenNotPaused onlyRole(IMPORTER) onlyWhitelisted(to) {
+  ) external whenNotPaused onlyRole(IMPORTER) onlyWhitelisted(to) {
     if (to == address(0)) revert ZeroAddress();
     if (wrappers.length == 0) revert EmptyInput();
 
@@ -243,7 +243,7 @@ contract Wrappers is
   function batchTransfer(
     address to,
     uint256[] calldata tokenIds
-  ) external payable whenNotPaused onlyRole(OWNER) {
+  ) external whenNotPaused onlyRole(OWNER) {
     if (to == address(0)) revert ZeroAddress();
     if (tokenIds.length == 0) revert EmptyInput();
 

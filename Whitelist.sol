@@ -63,7 +63,7 @@ contract Whitelist is
    * @dev Updates the roles contract address.
    * @param _roles Address of the new roles contract.
    */
-  function setRoles(address _roles) external payable onlyRole(OWNER) {
+  function setRoles(address _roles) external onlyRole(OWNER) {
     roles = IRoles(_roles);
     emit RolesSet(_roles);
   }
@@ -72,7 +72,7 @@ contract Whitelist is
    * @dev Pauses the contract.
    * Can only be called by an account with the PAUSER role.
    */
-  function pause() external payable onlyRole(PAUSER) {
+  function pause() external  onlyRole(PAUSER) {
     _pause();
   }
 
@@ -80,7 +80,7 @@ contract Whitelist is
    * @dev Unpauses the contract.
    * Can only be called by an account with the PAUSER role.
    */
-  function unpause() external payable onlyRole(PAUSER) {
+  function unpause() external  onlyRole(PAUSER) {
     _unpause();
   }
 
